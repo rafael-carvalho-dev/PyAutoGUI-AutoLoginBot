@@ -1,4 +1,3 @@
-# login-automation-bot
 # Login Automation Bot
 
 This project is a Python-based automation script designed to perform automated login tasks on a specified website using PyAutoGUI. The bot opens a web browser, navigates to the login page, inputs the user credentials, and logs in automatically. 
