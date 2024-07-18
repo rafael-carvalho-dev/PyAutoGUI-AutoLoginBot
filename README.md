@@ -55,6 +55,7 @@ EMAIL_FIELD_IMG = 'path/to/email_field.png'
 PASSCODE_FIELD_IMG = 'path/to/passcode_field.png'
 ENTER_BUTTON_IMG = 'path/to/enter_button.png'
 ```
+Warning: Field and button adjustments may be necessary.
 
 ## Logging
 The script includes logging functionality to track its operations. Logs are displayed in the console, providing information about the script's progress and any errors encountered.
