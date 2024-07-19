@@ -1,0 +1,4 @@
+Python 3.x
+pip (Python package installer)
+PyAutoGUI
+python-dotenv
