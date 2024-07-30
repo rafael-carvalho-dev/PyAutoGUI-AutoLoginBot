@@ -9,6 +9,20 @@ This project is a Python-based automation script designed to perform automated l
 - **Image Recognition**: Utilizes PyAutoGUI to locate and interact with UI elements based on screenshots.
 - **Error Handling**: Robust error handling and logging to track the script's execution.
 
+## Project Structure
+
+login_automation_bot/
+├── images/
+│ ├── email_field.png
+│ ├── password_field.png
+│ └── enter_button.png
+├── .env
+├── scripts/
+│ └── login_bot.py
+├── logs/
+│ └── app.log
+└── README.md
+
 ## Prerequisites
 
 - Python 3.x
@@ -31,8 +45,8 @@ This project is a Python-based automation script designed to perform automated l
 
 3. Create a `.env` file in the project directory and add your login credentials:
     ```sh
-    EMAIL_ADDRESS=your_email@example.com
-    PASS_CODE=your_password
+    USER_EMAIL=your_email@example.com
+    PASSWORD=your_password
     ```
 
 4. Update the paths to the image files in the script if necessary.
@@ -41,10 +55,15 @@ This project is a Python-based automation script designed to perform automated l
 
 1. Run the script:
     ```sh
-    python main.py
+    python scripts/login_bot.py
     ```
 
 2. The script will open a web browser, navigate to the login page, and perform the login operation using the credentials provided in the `.env` file.
+
+
+## Logging
+
+Logs are stored in the `logs/app.log` file.
 
 ## Configuration
 
@@ -52,7 +71,7 @@ Ensure the paths to the image files used for locating the email field, password 
 
 ```python
 EMAIL_FIELD_IMG = 'path/to/email_field.png'
-PASSCODE_FIELD_IMG = 'path/to/passcode_field.png'
+PASSWORD_FIELD_IMG = 'path/to/password_field.png'
 ENTER_BUTTON_IMG = 'path/to/enter_button.png'
 ```
 Warning: Field and button adjustments may be necessary.
@@ -82,4 +101,3 @@ This automation script is intended for educational purposes and personal use. Pl
 9. **License**: Specify the license under which the project is distributed.
 
 This README provides a comprehensive overview of the project, helping users understand its purpose, set it up, and use it effectively.
-
