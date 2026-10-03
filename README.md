@@ -6,6 +6,8 @@ Este projeto foi desenvolvido como um exercício de estudo de automação de tar
 
 > **Aviso:** este projeto é destinado a fins educacionais. Não utilize automações desse tipo em sistemas sem autorização.
 
+**Idiomas**: Português (Brasil)| [English](README.en.md)
+
 ## Tecnologias utilizadas
 
 * Python 3
