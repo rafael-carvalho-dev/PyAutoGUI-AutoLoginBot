@@ -1,103 +1,256 @@
-# Login Automation Bot
+# Automação de Login com Python e PyAutoGUI
 
-This project is a Python-based automation script designed to perform automated login tasks on a specified website using PyAutoGUI. The bot opens a web browser, navigates to the login page, inputs the user credentials, and logs in automatically. 
+Automação simples de login utilizando Python e PyAutoGUI.
 
-## Features
+Este projeto foi desenvolvido como um exercício de estudo de automação de tarefas com Python. A aplicação abre uma página web, localiza visualmente os campos de login na tela, preenche as credenciais e realiza o envio do formulário.
 
-- **Automated Login**: Automatically fills in email and password fields and submits the login form.
-- **Environment Variables**: Uses environment variables to securely manage login credentials.
-- **Image Recognition**: Utilizes PyAutoGUI to locate and interact with UI elements based on screenshots.
-- **Error Handling**: Robust error handling and logging to track the script's execution.
+> **Aviso:** este projeto é destinado a fins educacionais. Não utilize automações desse tipo em sistemas sem autorização.
 
-## Project Structure
+## Tecnologias utilizadas
 
-login_automation_bot/
+* Python 3
+* PyAutoGUI
+* python-dotenv
+
+Bibliotecas da biblioteca padrão do Python utilizadas no projeto:
+
+* `pathlib`
+* `logging`
+* `os`
+* `sys`
+* `time`
+* `webbrowser`
+
+## Funcionalidades
+
+* Abre automaticamente a URL configurada.
+* Carrega credenciais a partir de um arquivo `.env`.
+* Localiza os elementos da página utilizando reconhecimento de imagem.
+* Preenche o campo de e-mail.
+* Preenche o campo de senha.
+* Localiza e clica no botão de login.
+* Registra informações e erros em arquivo de log.
+* Utiliza tratamento de exceções para situações inesperadas.
+
+## Estrutura do projeto
+
+```text
+login-automation/
+│
+├── .env.example
+├── .gitignore
+├── README.md
+├── README.en.md
+├── requirements.txt
+│
 ├── images/
-│ ├── email_field.png
-│ ├── password_field.png
-│ └── enter_button.png
-├── .env
-├── scripts/
-│ └── login_bot.py
+│   ├── email_field.png
+│   ├── password_field.png
+│   └── enter_button.png
+│
 ├── logs/
-│ └── app.log
-└── README.md
-
-## Prerequisites
-
-- Python 3.x
-- [pip](https://pip.pypa.io/en/stable/) (Python package installer)
-- [PyAutoGUI](https://pypi.org/project/PyAutoGUI/)
-- [python-dotenv](https://pypi.org/project/python-dotenv/)
-
-## Installation
-
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/yourusername/login-automation-bot.git
-    cd login-automation-bot
-    ```
-
-2. Install the required Python packages:
-    ```sh
-    pip install -r requirements.txt
-    ```
-
-3. Create a `.env` file in the project directory and add your login credentials:
-    ```sh
-    USER_EMAIL=your_email@example.com
-    PASSWORD=your_password
-    ```
-
-4. Update the paths to the image files in the script if necessary.
-
-## Usage
-
-1. Run the script:
-    ```sh
-    python scripts/login_bot.py
-    ```
-
-2. The script will open a web browser, navigate to the login page, and perform the login operation using the credentials provided in the `.env` file.
-
-
-## Logging
-
-Logs are stored in the `logs/app.log` file.
-
-## Configuration
-
-Ensure the paths to the image files used for locating the email field, password field, and login button are correctly set in the script:
-
-```python
-EMAIL_FIELD_IMG = 'path/to/email_field.png'
-PASSWORD_FIELD_IMG = 'path/to/password_field.png'
-ENTER_BUTTON_IMG = 'path/to/enter_button.png'
+│
+└── src/
+    ├── __init__.py
+    ├── main.py
+    ├── config.py
+    ├── credentials.py
+    ├── screen.py
+    └── login.py
 ```
-Warning: Field and button adjustments may be necessary.
 
-## Logging
-The script includes logging functionality to track its operations. Logs are displayed in the console, providing information about the script's progress and any errors encountered.
+## Pré-requisitos
 
-## Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
+É necessário ter o Python 3 instalado.
 
-## License
+Recomenda-se utilizar um ambiente virtual (`venv`) para isolar as dependências do projeto.
 
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
+### Verificar a instalação do Python
 
-This automation script is intended for educational purposes and personal use. Please ensure you have permission to automate the login process for any website you use this script with.
+Windows:
 
+```powershell
+py --version
+```
 
-### How to Use the README
-1. **Title**: The title should clearly describe the purpose of the repository.
-2. **Features**: Highlight the main features of the project.
-3. **Prerequisites**: List the required software and dependencies.
-4. **Installation**: Provide step-by-step instructions to set up the project.
-5. **Usage**: Explain how to run the script.
-6. **Configuration**: Guide the user to configure the script correctly.
-7. **Logging**: Mention the logging functionality.
-8. **Contributing**: Encourage contributions and provide guidelines.
-9. **License**: Specify the license under which the project is distributed.
+Linux/macOS:
 
-This README provides a comprehensive overview of the project, helping users understand its purpose, set it up, and use it effectively.
+```bash
+python3 --version
+```
+
+## Instalação
+
+Clone o repositório:
+
+```bash
+git clone <URL_DO_REPOSITORIO>
+```
+
+Entre no diretório:
+
+```bash
+cd login-automation
+```
+
+### Windows PowerShell
+
+Crie o ambiente virtual:
+
+```powershell
+py -m venv .venv
+```
+
+Ative:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+Instale as dependências:
+
+```powershell
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+### Linux/macOS
+
+Crie o ambiente virtual:
+
+```bash
+python3 -m venv .venv
+```
+
+Ative:
+
+```bash
+source .venv/bin/activate
+```
+
+Instale as dependências:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+## Configuração
+
+Crie um arquivo `.env` na raiz do projeto.
+
+Você pode utilizar o `.env.example` como referência:
+
+```env
+USER_EMAIL=your_email@example.com
+PASSWORD=your_password
+```
+
+Substitua os valores pelos dados necessários para a execução do projeto.
+
+**Nunca envie o arquivo `.env` para o GitHub.**
+
+O arquivo `.env` está incluído no `.gitignore` justamente para evitar o versionamento de credenciais.
+
+## Imagens utilizadas pela automação
+
+O PyAutoGUI utiliza imagens como referência para localizar os elementos na tela.
+
+As imagens esperadas são:
+
+```text
+images/
+├── email_field.png
+├── password_field.png
+└── enter_button.png
+```
+
+Essas imagens devem corresponder visualmente aos elementos presentes na página que será automatizada.
+
+Alterações no layout, resolução, escala da tela, tema do navegador ou aparência dos elementos podem afetar o reconhecimento das imagens.
+
+## Execução
+
+Com o ambiente virtual ativado, execute:
+
+```bash
+python -m src.main
+```
+
+O programa irá:
+
+1. Abrir a URL configurada.
+2. Carregar as credenciais do `.env`.
+3. Procurar o campo de e-mail.
+4. Preencher o e-mail.
+5. Procurar o campo de senha.
+6. Preencher a senha.
+7. Procurar o botão de login.
+8. Clicar no botão.
+9. Registrar informações da execução no log.
+
+## Logs
+
+As informações de execução são registradas em:
+
+```text
+logs/app.log
+```
+
+O diretório `logs/` não deve ser versionado.
+
+## Limitações
+
+Por utilizar reconhecimento de imagem e interação com a interface gráfica, a automação depende das condições da tela.
+
+Por exemplo:
+
+* resolução do monitor;
+* escala de exibição;
+* posição da janela;
+* aparência dos elementos;
+* carregamento da página;
+* alterações no layout do site;
+* tema claro ou escuro;
+* disponibilidade dos elementos na tela.
+
+Por isso, a automação pode exigir ajustes caso o ambiente seja alterado.
+
+## Possíveis melhorias
+
+Algumas melhorias que podem ser implementadas futuramente:
+
+* substituir esperas fixas por esperas condicionais;
+* validar se o login realmente foi concluído;
+* adicionar screenshots em caso de erro;
+* melhorar o tratamento de diferentes tipos de falha;
+* utilizar seletores HTML com Selenium ou Playwright;
+* adicionar testes automatizados para as funções que não dependem da interface gráfica;
+* utilizar configurações externas para diferentes ambientes;
+* adicionar uma interface de linha de comando.
+
+## Objetivo do projeto
+
+O objetivo principal deste projeto é estudar conceitos de:
+
+* Python;
+* modularização;
+* funções;
+* tratamento de exceções;
+* gerenciamento de dependências;
+* ambientes virtuais;
+* variáveis de ambiente;
+* logging;
+* automação de interface gráfica;
+* organização de projetos Python.
+
+## Licença
+
+Este projeto pode ser utilizado para fins de estudo.
+
+## Autor
+
+Rafael Carvalho Álvares da Silva
+
+* GitHub: `https://github.com/rafael-carvalho-dev/`
+* LinkedIn: `<LINKEDIN_PROFILE_URL>`

@@ -1,3 +1,6 @@
+'''
+Esse é o código antigo, original...
+
 from dotenv import load_dotenv
 from time import sleep
 import logging
@@ -134,3 +137,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+'''
